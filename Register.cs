@@ -107,25 +107,25 @@ namespace SKILLS__International_Project
                 string parentsname = txtPName.Text;
                 string NIC = txtnic.Text;
                 int contactNumber = int.Parse(txtCnumber.Text);
-                string query_insert = "insert into students values('" + fisrtName + "','" + lastName + "','" + dtpDob.Text + "','" + gender + "','" + address + "','" + email + "','" + mobilephone + "','" + homephone + "','" + parentsname + "','" + NIC + "','" + contactNumber + ")";
+                string query_insert = "insert into students values('" + fisrtName + "','" + lastName + "','" + dtpDob.Text + "','" + gender + "','" + address + "','" + email + "','" + mobilephone + "','" + homephone + "','" + parentsname + "','" + NIC + "','" + contactNumber")";
 
-                
-                con.Open();SqlException ex = null;
+
+                con.Open();
                 SqlCommand cmnd = new SqlCommand(query_insert, con);
 
                 cmnd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Record Added Succesfully !", "Registered Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
             }
-                catch (SqlException ex)
+            catch (Exception ex)
             {
-                
+
                 string msg = "insert Error:";
                 msg += ex.Message;
-                
+
             }
-             
+
         }
 
         private void btnclear2_Click(object sender, EventArgs e)
